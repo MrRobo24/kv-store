@@ -1,5 +1,6 @@
 from exception import CustomException
 import threading
+import time
 import queue
 
 class KVStore:
@@ -28,6 +29,7 @@ class KVStore:
         elif command == "REMOVE":
           f.write(f"REMOVE {key}\n")
       self.log_queue.task_done()
+      time.sleep(0.001)
         
   def _load_from_log(self):
     try:
