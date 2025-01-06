@@ -6,6 +6,7 @@ class Test:
       
   def run_tests(self):
     self.test_put()
+    self.test_put_empty_key()
     self.test_get()
     self.test_remove()
     print('All tests passed')
@@ -13,6 +14,10 @@ class Test:
   def test_put(self):
     self.kv.put('name', 'John Doe')
     assert self.kv.get('name') == 'John Doe'
+    
+  def test_put_empty_key(self):
+    self.kv.put('', 'John Doe')
+    assert self.kv.get('') == None
 
   def test_get(self):
     self.kv.put('name', 'John Doe')

@@ -3,7 +3,8 @@ class KVStore:
     self.kv_store = {}
     
   def put(self, key, val):
-    self.kv_store[key] = val
+    if not key.strip() == '':
+      self.kv_store[key] = val
     
   def get(self, key):
     return self.kv_store.get(key, None)
